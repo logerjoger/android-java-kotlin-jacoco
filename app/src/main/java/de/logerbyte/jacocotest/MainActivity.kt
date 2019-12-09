@@ -14,6 +14,6 @@ class MainActivity : AppCompatActivity() {
 
     @VisibleForTesting
     fun calculate() {
-
+// TODO: 2019-11-11  
     }
 }

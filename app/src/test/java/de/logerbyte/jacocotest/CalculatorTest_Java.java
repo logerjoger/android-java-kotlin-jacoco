@@ -2,6 +2,8 @@ package de.logerbyte.jacocotest;
 
 import org.junit.*;
 
+import de.logerbyte.jacocotest.javaClasses.Calculator_Java;
+
 public class CalculatorTest_Java {
     public Calculator_Java classToTest;
 
