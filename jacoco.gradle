@@ -1,0 +1,66 @@
+apply plugin: 'jacoco'
+
+ext {
+    coverageSourceDirs = 'src/test/java'
+}
+
+jacoco {
+    toolVersion = "0.8.3"
+    reportsDir = file("../app/build//reports/rep") // file for reports (xml, html)
+}
+
+task jacocoTestReport(type: JacocoReport) {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports for Debug build"
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def excludes = ['**/R.class',
+                    '**/R$*.class',
+                    '**/*$ViewBinder*.*',
+                    '**/*$InjectAdapter*.*',
+                    '**/*Injector*.*',
+                    '**/BuildConfig.*',
+                    '**/Manifest*.*',
+                    '**/*Test*.*',
+//                    '**/*Activity*.*',
+                    '**/CiMattersApplication*.*',
+                    'android/**/*.*']
+
+    def debugTree = fileTree(
+            dir: "../app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/de" +
+                    "/logerbyte/jacocotest/javaClasses",
+            excludes: excludes)
+    def kotlinDebugTree = fileTree(
+            dir: "../app/build/tmp/kotlin-classes/debug/de/logerbyte/jacocotest",
+            excludes: excludes)
+    def mainSrc = "../app/src/main/java"
+
+
+    def debugTreeMyLib = fileTree(
+            dir: "../mylibrary/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" +
+                    "/de/logerbyte/mylibrary/javaClasses",
+            excludes: excludes)
+    def kotlinDebugTreeMyLib = fileTree(
+            dir: "../mylibrary/build/tmp/kotlin-classes/debug/de/logerbyte/mylibrary",
+            excludes: excludes)
+    def mainSrcMyLib = "../mylibrary/src/main/java"
+
+
+
+
+    classDirectories = files(
+            [debugTree], [kotlinDebugTree],
+            [debugTreeMyLib], [kotlinDebugTreeMyLib]
+    )
+    executionData = files(
+            "../app/build/jacoco/testDebugUnitTest.exec",
+            "../mylibrary/build/jacoco/testDebugUnitTest.exec")
+    sourceDirectories = files(
+            [mainSrc],
+            [mainSrcMyLib]
+    )
+}

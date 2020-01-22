@@ -1,4 +1,4 @@
-package de.logerbyte.jacocotest
+package de.logerbyte.mylibrary
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +14,5 @@ class MainActivity : AppCompatActivity() {
 
     @VisibleForTesting
     fun calculate() {
-// TODO: 2019-11-11  
     }
 }
