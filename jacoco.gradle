@@ -35,16 +35,32 @@ task jacocoTestReport(type: JacocoReport) {
                     "/logerbyte/jacocotest/javaClasses",
             excludes: excludes)
     def kotlinDebugTree = fileTree(
-            dir: "../app/build/tmp/kotlin-classes/debug",
+            dir: "../app/build/tmp/kotlin-classes/debug/de/logerbyte/jacocotest",
             excludes: excludes)
     def mainSrc = "../app/src/main/java"
 
-    def kotlinDebugTreeMyLib = fileTree(
-            dir: "../app/build/tmp/kotlin-classes/debug",
-            excludes: excludes)
 
-    classDirectories = files([debugTree], [kotlinDebugTree])
+    def debugTreeMyLib = fileTree(
+            dir: "../mylibrary/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" +
+                    "/de/logerbyte/mylibrary/javaClasses",
+            excludes: excludes)
+    def kotlinDebugTreeMyLib = fileTree(
+            dir: "../mylibrary/build/tmp/kotlin-classes/debug/de/logerbyte/mylibrary",
+            excludes: excludes)
+    def mainSrcMyLib = "../mylibrary/src/main/java"
+
+
+
+
+    classDirectories = files(
+            [debugTree], [kotlinDebugTree],
+            [debugTreeMyLib], [kotlinDebugTreeMyLib]
+    )
     executionData = files(
-            "../app/build/jacoco/testDebugUnitTest.exec")
-    sourceDirectories = files([mainSrc])
+            "../app/build/jacoco/testDebugUnitTest.exec",
+            "../mylibrary/build/jacoco/testDebugUnitTest.exec")
+    sourceDirectories = files(
+            [mainSrc],
+            [mainSrcMyLib]
+    )
 }

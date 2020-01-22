@@ -1,6 +1,5 @@
 package de.logerbyte.mylibrary
 
-import de.logerbyte.jacocotest.Calculator
 import org.junit.Before
 import org.junit.Test
 

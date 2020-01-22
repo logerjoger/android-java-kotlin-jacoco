@@ -1,4 +1,4 @@
-package de.logerbyte.jacocotest
+package de.logerbyte.mylibrary
 
 
 class Calculator {
