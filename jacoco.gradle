@@ -9,7 +9,7 @@ jacoco {
     reportsDir = file("../app/build//reports/rep") // file for reports (xml, html)
 }
 
-task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
+task jacocoTestReport(type: JacocoReport) {
     group = "Reporting"
     description = "Generate Jacoco coverage reports for Debug build"
 
@@ -44,6 +44,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
             excludes: excludes)
 
     classDirectories = files([debugTree], [kotlinDebugTree])
-    executionData = files("../app/build/jacoco/testDebugUnitTest.exec")
+    executionData = files(
+            "../app/build/jacoco/testDebugUnitTest.exec")
     sourceDirectories = files([mainSrc])
 }
