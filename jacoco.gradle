@@ -6,7 +6,7 @@ ext {
 
 jacoco {
     toolVersion = "0.8.3"
-    reportsDir = file("$buildDir/reports")
+    reportsDir = file("../app/build//reports/rep") // file for reports (xml, html)
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
@@ -31,14 +31,19 @@ task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
                     'android/**/*.*']
 
     def debugTree = fileTree(
-            dir: "$buildDir/intermediates/javac/debug/compileDebugJavaWithJavac/classes/de/logerbyte/jacocotest",
+            dir: "../app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/de" +
+                    "/logerbyte/jacocotest/javaClasses",
             excludes: excludes)
     def kotlinDebugTree = fileTree(
-            dir: "$buildDir/tmp/kotlin-classes/debug",
+            dir: "../app/build/tmp/kotlin-classes/debug",
             excludes: excludes)
-    def mainSrc = "${project.projectDir}/src/main/java"
+    def mainSrc = "../app/src/main/java"
+
+    def kotlinDebugTreeMyLib = fileTree(
+            dir: "../app/build/tmp/kotlin-classes/debug",
+            excludes: excludes)
 
     classDirectories = files([debugTree], [kotlinDebugTree])
-    executionData = files("$buildDir/jacoco/testDebugUnitTest.exec")
+    executionData = files("../app/build/jacoco/testDebugUnitTest.exec")
     sourceDirectories = files([mainSrc])
 }
