@@ -39,7 +39,6 @@ task jacocoTestReport(type: JacocoReport) {
             excludes: excludes)
     def mainSrc = "../app/src/main/java"
 
-
     def debugTreeMyLib = fileTree(
             dir: "../mylibrary/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" +
                     "/de/logerbyte/mylibrary/javaClasses",
@@ -48,9 +47,6 @@ task jacocoTestReport(type: JacocoReport) {
             dir: "../mylibrary/build/tmp/kotlin-classes/debug/de/logerbyte/mylibrary",
             excludes: excludes)
     def mainSrcMyLib = "../mylibrary/src/main/java"
-
-
-
 
     classDirectories = files(
             [debugTree], [kotlinDebugTree],
