@@ -1,6 +1,6 @@
-# Android-Java-Kotlin-Jacoco
+# Android-Java-Kotlin-Jacoco with SonarQube
 
-This project generates a jacoco test report and send it to sonarqube (needs to add your host url).
+This project generates a jacoco test report and send it to sonarqube (needs to add your sonar host url).
 Its a multi module project with java and kotlin classes.
 
 
