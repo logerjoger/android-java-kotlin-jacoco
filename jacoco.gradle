@@ -39,7 +39,6 @@ task jacocoTestReport(type: JacocoReport) {
             excludes: excludes)
     def mainSrc = "../app/src/main/java"
 
-
     def debugTreeMyLib = fileTree(
             dir: "../mylibrary/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" +
                     "/de/logerbyte/mylibrary/javaClasses",
@@ -49,16 +48,12 @@ task jacocoTestReport(type: JacocoReport) {
             excludes: excludes)
     def mainSrcMyLib = "../mylibrary/src/main/java"
 
-
-
-
     classDirectories = files(
             [debugTree], [kotlinDebugTree],
             [debugTreeMyLib], [kotlinDebugTreeMyLib]
     )
     executionData = files(
-            "../app/build/jacoco/testDebugUnitTest.exec",
-            "../mylibrary/build/jacoco/testDebugUnitTest.exec")
+            "../mylibrary/build/jacoco/testDebugUnitTest.exec","../app/build/jacoco/testDebugUnitTest.exec")
     sourceDirectories = files(
             [mainSrc],
             [mainSrcMyLib]
