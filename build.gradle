@@ -5,7 +5,7 @@ sonarqube {
     properties {
         property 'sonar.projectName', 'Sonar-Multii'
 
-        property 'sonar.host.url', 'https://tde-b-apps-01p.tde.thalia.de/sonarqube'
+        property 'sonar.host.url', '<your sonar url>'
         property 'sonar.report.export.path', 'sonar-report.json'
         property 'sonar.coverage.jacoco.xmlReportPaths',
                 '../app/build/reports/rep/jacocoTestReport' +
