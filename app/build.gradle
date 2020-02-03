@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from: '../jacoco.gradle'
-apply plugin: 'org.sonarqube'
+
 
 android {
     compileSdkVersion 28
@@ -19,18 +19,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-}
-
-sonarqube {
-    properties {
-
-        property 'sonar.host.url', 'https://tde-b-apps-01p.tde.thalia.de/sonarqube'
-        property 'sonar.report.export.path', 'sonar-report.json'
-        property 'sonar.coverage.jacoco.xmlReportPaths',
-                '../app/build/reports/rep/jacocoTestReport/jacocoTestReport.xml'
-
-        property "sonar.exclusions", "**/*.xml"
     }
 }
 

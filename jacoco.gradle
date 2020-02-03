@@ -53,8 +53,7 @@ task jacocoTestReport(type: JacocoReport) {
             [debugTreeMyLib], [kotlinDebugTreeMyLib]
     )
     executionData = files(
-            "../app/build/jacoco/testDebugUnitTest.exec",
-            "../mylibrary/build/jacoco/testDebugUnitTest.exec")
+            "../mylibrary/build/jacoco/testDebugUnitTest.exec","../app/build/jacoco/testDebugUnitTest.exec")
     sourceDirectories = files(
             [mainSrc],
             [mainSrcMyLib]
