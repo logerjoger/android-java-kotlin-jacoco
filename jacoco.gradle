@@ -6,7 +6,7 @@ ext {
 
 jacoco {
     toolVersion = "0.8.3"
-    reportsDir = file("../app/build//reports/rep") // file for reports (xml, html)
+    reportsDir = file("../app/build/reports/rep") // file for reports (xml, html)
 }
 
 task jacocoTestReport(type: JacocoReport) {
@@ -31,7 +31,7 @@ task jacocoTestReport(type: JacocoReport) {
                     'android/**/*.*']
 
     def debugTree = fileTree(
-            dir: "../app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/de" +
+            dir: "../app/build/intermediates/javac/debug/classes/de" +
                     "/logerbyte/jacocotest/javaClasses",
             excludes: excludes)
     def kotlinDebugTree = fileTree(
@@ -40,7 +40,7 @@ task jacocoTestReport(type: JacocoReport) {
     def mainSrc = "../app/src/main/java"
 
     def debugTreeMyLib = fileTree(
-            dir: "../mylibrary/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" +
+            dir: "../mylibrary/build/intermediates/javac/debug/classes" +
                     "/de/logerbyte/mylibrary/javaClasses",
             excludes: excludes)
     def kotlinDebugTreeMyLib = fileTree(

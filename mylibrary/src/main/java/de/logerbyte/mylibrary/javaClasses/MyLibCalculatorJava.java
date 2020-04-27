@@ -1,6 +1,6 @@
 package de.logerbyte.mylibrary.javaClasses;
 
-public class Calculator_Java implements Operationss {
+public class MyLibCalculatorJava implements Operationss {
 
     @Override
     public int calculate(int a, int b) {
