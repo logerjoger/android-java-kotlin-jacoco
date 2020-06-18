@@ -11,9 +11,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         calculate()
     }
+    // TODO: fsdf
 
     @VisibleForTesting
     fun calculate() {
-// TODO: 2019-11-11  
+// TODO: 2019-11-11
+        // TODO: ffdsdf
     }
 }

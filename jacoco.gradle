@@ -28,7 +28,8 @@ task jacocoTestReport(type: JacocoReport) {
                     '**/*Test*.*',
 //                    '**/*Activity*.*',
                     '**/CiMattersApplication*.*',
-                    'android/**/*.*']
+                    'android/**/*.*',
+                    '**/di/']
 
     def debugTree = fileTree(
             dir: "../app/build/intermediates/javac/debug/classes/de" +
