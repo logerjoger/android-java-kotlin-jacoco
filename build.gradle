@@ -21,6 +21,8 @@ buildscript {
         version_code = 11
         version_name = "1.1"
         robolectric = '4.3'
+        espressoVersion = "3.3.0-beta02"
+        extJUnitVersion = "1.1.2-beta02"
     }
 
     repositories {
