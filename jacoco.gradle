@@ -53,10 +53,15 @@ task jacocoTestReport(type: JacocoReport) {
             [debugTree], [kotlinDebugTree],
             [debugTreeMyLib], [kotlinDebugTreeMyLib]
     )
-    executionData = files(
-            "../mylibrary/build/jacoco/testDebugUnitTest.exec","../app/build/jacoco/testDebugUnitTest.exec")
     sourceDirectories = files(
             [mainSrc],
             [mainSrcMyLib]
     )
+    executionData = files(
+            "../mylibrary/build/jacoco/testDebugUnitTest.exec",
+            "../app/build/jacoco/testDebugUnitTest.exec",
+            '../app/build/outputs/code_coverage/debugAndroidTest/connected/Nexus 6P - 10-coverage.ec'
+    )
+    // TODO-SW: for generic devices + emulator doesnt work
+//        executionData = fileTree(dir: project.projectDir, includes: ['**/*.exec' , '**/*.ec'])
 }
