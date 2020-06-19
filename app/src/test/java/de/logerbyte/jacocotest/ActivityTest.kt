@@ -14,8 +14,8 @@ class ActivityTest {
 
     @Test
     fun isActivityLoaded() {
-//        Robolectric.setupActivity(MainActivity::class.java).apply {
-//            assertEquals(helloWorld.text,"Hello World!")
-//        }
+        Robolectric.setupActivity(MainActivity::class.java).apply {
+            assertEquals(helloWorld.text,"Hello World!")
+        }
     }
 }
